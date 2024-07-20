@@ -1,0 +1,137 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\0projects\\godot side project\\godot project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|c:\\0projects\\godot side project\\godot project\\scrips\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|solutionrelative:scrips\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|c:\\0projects\\godot side project\\godot project\\scrips\\debugscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|solutionrelative:scrips\\debugscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|c:\\0projects\\godot side project\\godot project\\scrips\\enums\\playerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|solutionrelative:scrips\\enums\\playerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|c:\\0projects\\godot side project\\godot project\\scrips\\power.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|solutionrelative:scrips\\power.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|c:\\0projects\\godot side project\\godot project\\scrips\\tilemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|solutionrelative:scrips\\tilemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\rutaj\\AppData\\Local\\Temp\\.vsdbgsrc\\e02c6d47bcf93dc176fd92dbe50e48b6346bd905c9638f8cf9ab6f4e860123e7\\CSharpInstanceBridge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|c:\\0projects\\godot side project\\godot project\\scrips\\variablemanagger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|solutionrelative:scrips\\variablemanagger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Power.cs",
+              "DocumentMoniker": "C:\\0projects\\godot side project\\godot project\\scrips\\Power.cs",
+              "RelativeDocumentMoniker": "scrips\\Power.cs",
+              "ToolTip": "C:\\0projects\\godot side project\\godot project\\scrips\\Power.cs",
+              "RelativeToolTip": "scrips\\Power.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAQwC0AAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T21:48:29.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CSharpInstanceBridge.cs",
+              "DocumentMoniker": "C:\\Users\\rutaj\\AppData\\Local\\Temp\\.vsdbgsrc\\e02c6d47bcf93dc176fd92dbe50e48b6346bd905c9638f8cf9ab6f4e860123e7\\CSharpInstanceBridge.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Users\\rutaj\\AppData\\Local\\Temp\\.vsdbgsrc\\e02c6d47bcf93dc176fd92dbe50e48b6346bd905c9638f8cf9ab6f4e860123e7\\CSharpInstanceBridge.cs",
+              "ToolTip": "C:\\Users\\rutaj\\AppData\\Local\\Temp\\.vsdbgsrc\\e02c6d47bcf93dc176fd92dbe50e48b6346bd905c9638f8cf9ab6f4e860123e7\\CSharpInstanceBridge.cs",
+              "RelativeToolTip": "..\\..\\..\\Users\\rutaj\\AppData\\Local\\Temp\\.vsdbgsrc\\e02c6d47bcf93dc176fd92dbe50e48b6346bd905c9638f8cf9ab6f4e860123e7\\CSharpInstanceBridge.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAUwCkAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T21:41:15.675Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PLayerState.cs",
+              "DocumentMoniker": "C:\\0projects\\godot side project\\godot project\\scrips\\enums\\PLayerState.cs",
+              "RelativeDocumentMoniker": "scrips\\enums\\PLayerState.cs",
+              "ToolTip": "C:\\0projects\\godot side project\\godot project\\scrips\\enums\\PLayerState.cs",
+              "RelativeToolTip": "scrips\\enums\\PLayerState.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAwAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T13:30:38.719Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DebugScript.cs",
+              "DocumentMoniker": "C:\\0projects\\godot side project\\godot project\\scrips\\DebugScript.cs",
+              "RelativeDocumentMoniker": "scrips\\DebugScript.cs",
+              "ToolTip": "C:\\0projects\\godot side project\\godot project\\scrips\\DebugScript.cs",
+              "RelativeToolTip": "scrips\\DebugScript.cs",
+              "ViewState": "AQIAACYAAAAAAAAAAAAUwEkAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-19T14:28:01.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "VariableManagger.cs",
+              "DocumentMoniker": "C:\\0projects\\godot side project\\godot project\\scrips\\VariableManagger.cs",
+              "RelativeDocumentMoniker": "scrips\\VariableManagger.cs",
+              "ToolTip": "C:\\0projects\\godot side project\\godot project\\scrips\\VariableManagger.cs",
+              "RelativeToolTip": "scrips\\VariableManagger.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T19:27:30.717Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "player.cs",
+              "DocumentMoniker": "C:\\0PROJECTS\\GODOT SIDE PROJECT\\GODOT PROJECT\\scrips\\player.cs",
+              "RelativeDocumentMoniker": "scrips\\player.cs",
+              "ToolTip": "C:\\0PROJECTS\\GODOT SIDE PROJECT\\GODOT PROJECT\\scrips\\player.cs",
+              "RelativeToolTip": "scrips\\player.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T15:07:25.395Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TileManager.cs",
+              "DocumentMoniker": "C:\\0projects\\godot side project\\godot project\\scrips\\TileManager.cs",
+              "RelativeDocumentMoniker": "scrips\\TileManager.cs",
+              "ToolTip": "C:\\0projects\\godot side project\\godot project\\scrips\\TileManager.cs",
+              "RelativeToolTip": "scrips\\TileManager.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwB4AAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T14:14:54.46Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
