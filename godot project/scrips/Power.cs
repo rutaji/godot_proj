@@ -14,8 +14,13 @@ namespace dream.scrips
         float CooldwonVelocity = 7;
         bool RefreshOnFloorVelocity = true;
         float VelocityYMult = 1;
-        bool ResetVelovityOnActiveVel = true;
-
+        bool ResetVelovityOnActiveVel = true; //nastaví hráčovu velocity na nula při aktivaci
+        //--------dash
+        public float DashTime = 3;
+        public float DashPower = 20;
+        public bool SameSpeed = true;
+        private float DashCoolDOwn = 6;
+        public bool ResetDashOnFloot = true;
         //----------UI nebo spíš jeho karikatura
         Label Name;
         Label C;
@@ -23,7 +28,7 @@ namespace dream.scrips
         player Player;
         float CurrentCooldown = 0;
         int SelectedPower = 0;
-        int MaxPower = 2;
+        int MaxPower = 3;
         public override void _Ready()
         {
             Name = GetNode<Label>("/root/World/Player/Camera2D/PowerMenu/Name");
@@ -52,6 +57,12 @@ namespace dream.scrips
                     Player.Velocity += new Vector2(Player.InputXDirection, Player.InputYDirection * VelocityYMult) * VelocityPower;
                     CurrentCooldown = CooldwonVelocity;
                     break;
+                case 2:
+                    Player.ResetVelocity();
+                    Player.DashDirection = Player.GetInputVector();
+                    Player.DashTimeBuffer = DashTime;
+                    CurrentCooldown = DashCoolDOwn;
+                    break;
             }
         }
         private void ShowCooldown()
@@ -76,6 +87,9 @@ namespace dream.scrips
                 case 1:
                     Name.Text = "velocity";
                     break;
+                case 2:
+                    Name.Text = "dash";
+                    break;
                 default:
                     Name.Text = " ";
                     break;
@@ -92,9 +106,14 @@ namespace dream.scrips
                 case 1:
                     if (RefreshOnFloorVelocity) { Refresh(); }
                     break;
+                case 2:
+                    if(ResetDashOnFloot) { Refresh(); }
+                    break;
 
                 default: break;
             }
         }
+        
+        
     }
 }

@@ -8,6 +8,6 @@ namespace dream.scrips
 {
     internal class VariableManagger
     {
-        public static float bouncyBlock = 500;
+        public static float bouncyBlock = 100;
     }
 }

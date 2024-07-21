@@ -72,6 +72,9 @@ public partial class player : CharacterBody2D
     public bool just_jump_pressed = false;
 	public bool just_jump_release = false;
     public int DoubleJumpBuffer = 0;
+    //--------------Powers (ugly hack)
+    public float DashTimeBuffer = 0;
+    public Vector2 DashDirection;
 
 
     public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
@@ -80,16 +83,27 @@ public partial class player : CharacterBody2D
 
     public override void _PhysicsProcess(double delta)
 	{
-        NewVelocity = Velocity;
-        DoInputs();
-        Jumping();
-        state = CheckState();
-        ApplyGravity(delta);
-        XMovement(delta);
-		DoTimers(delta);
-        //done
-        Velocity = NewVelocity;
-        power.DoPowers(delta);
+        if (DashTimeBuffer > 0)
+        {
+            ChangeColor(1);
+            if (power.SameSpeed) {ResetVelocity(); }
+            Velocity += DashDirection * power.DashPower;
+            DashTimeBuffer -= (float)delta;
+        }
+        else
+        {
+            ChangeColor(0);
+            DoInputs();
+            NewVelocity = Velocity;
+            Jumping();
+            state = CheckState();
+            ApplyGravity(delta);
+            XMovement(delta);
+            DoTimers(delta);
+            //done
+            Velocity = NewVelocity;
+            power.DoPowers(delta);
+        }
         
 
 
@@ -367,6 +381,24 @@ public partial class player : CharacterBody2D
     {
         power = GetNode<Power>("/root/World/Player/Power");
         base._Ready();
+    }
+    public Vector2 GetInputVector()
+    {
+        return new Vector2(InputXDirection,InputYDirection);
+    }
+
+    public void ChangeColor(int what)
+    {
+        switch (what)
+        {
+            case 0:
+                GetNode<Sprite2D>("/root/World/Player/Sprite2D").Modulate = new Color(0.9f, 0f, 0.3f);
+                break;
+            case 1:
+                GetNode<Sprite2D>("/root/World/Player/Sprite2D").Modulate = new Color(0.5f, 0.5f, 0.5f);
+                break;
+
+        }
     }
 
 
