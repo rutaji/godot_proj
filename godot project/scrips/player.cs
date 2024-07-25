@@ -57,6 +57,12 @@ public partial class player : CharacterBody2D
     //--------------timer
     public float jump_coyote = 0.08f;
 	public float jump_buffer = 0.2f;
+    //---------------wall-jump
+    public bool CanWallJump = true;
+    public float XDirectionLossOnWallJump = 0.4f;
+    public bool WallJumpResetVelocity = true;
+    public float WallJumpYVelocity = 100;
+    public float WallJumpXVelocity = 110;
 
 	//-----------------DO NOT CHANGE
 	float jump_coyote_timer = 0;
@@ -76,6 +82,12 @@ public partial class player : CharacterBody2D
     public float DashTimeBuffer = 0;
     public Vector2 DashDirection;
 
+    public float sandevistanBuffer = 0;
+    public Vector2 sandevistanVector;
+
+    public float ChargeBuffer = 0;
+    public int ChargeDirection;
+    public float XDirectionLossBuffer = 0;
 
     public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
     Power power;
@@ -83,18 +95,62 @@ public partial class player : CharacterBody2D
 
     public override void _PhysicsProcess(double delta)
 	{
+        DoInputs();
+        NewVelocity = Velocity;
         if (DashTimeBuffer > 0)
         {
             ChangeColor(1);
             if (power.SameSpeed) {ResetVelocity(); }
             Velocity += DashDirection * power.DashPower;
             DashTimeBuffer -= (float)delta;
+            
+
+        }
+        else if(sandevistanBuffer > 0) 
+        {
+            ChangeColor(2);
+            ResetVelocity();
+            Velocity = GetInputVector() * power.sandevistanPower;
+            sandevistanVector += Velocity;
+            sandevistanBuffer -= (float)delta;
+            if (sandevistanBuffer <= 0)
+            {
+                if (power.KeepAllVelocity == 1)
+                {
+                    Velocity = sandevistanVector * power.KeepAllVelocityMult;
+                }
+                else if(power.KeepAllVelocity == 2) 
+                {
+                    Velocity = GetInputVector() * power.KeepAllVelocityMult;
+                }
+                else { ResetVelocity(); }
+                
+            }
+            
+
+        }
+        else if(ChargeBuffer > 0) 
+        {
+            if(InputXDirection == ChargeDirection * -1) 
+            {
+                ChargeBuffer = 0;
+            }
+            ChangeColor(3);
+            if (NewVelocity.X < power.MaxChargespeed)
+            {
+                NewVelocity.X += power.ChargeAcceleration;
+            }
+            Jumping();
+            state = CheckState();
+            ApplyGravity(delta);
+            DoTimers(delta);
+            Velocity = NewVelocity;
+            power.DoPowers(delta);
         }
         else
         {
             ChangeColor(0);
-            DoInputs();
-            NewVelocity = Velocity;
+            state = CheckState();
             Jumping();
             state = CheckState();
             ApplyGravity(delta);
@@ -118,6 +174,7 @@ public partial class player : CharacterBody2D
 			{
 				SolveCollision(tileVal, pos);
 			}
+            if (!IsOnFloorOnly()) { ChargeBuffer = 0; }
 		}
         Vector2I position = TileManager.getPosition(Position);
         int t = TileManager.GetTileValue(position);
@@ -127,6 +184,7 @@ public partial class player : CharacterBody2D
     }
     public void ResetVelocity() 
     {
+        NewVelocity = Vector2.Zero;
         Velocity = Vector2.Zero;
     }
 	private void DoInputs() 
@@ -194,6 +252,14 @@ public partial class player : CharacterBody2D
             jump_coyote_timer = 0;
             jump_buffer_timer = 0;
             NewVelocity.Y = -jump_force;
+
+        }
+        else if(IsOnWall() && CanWallJump && jump_buffer_timer > 0) //wall Jump
+        {
+            XDirectionLossBuffer = XDirectionLossOnWallJump;
+            if (WallJumpResetVelocity) { ResetVelocity(); }
+            NewVelocity += new Vector2(WallJumpXVelocity * InputXDirection *-1, -WallJumpYVelocity);
+            jump_buffer_timer = 0;
 
         }
         else if (just_jump_pressed && DoubleJumpBuffer > 0)//todo možná upravit aby se neaktivoal nechtěně
@@ -269,6 +335,7 @@ public partial class player : CharacterBody2D
 	private void XMovement(double delta)
 	{
         //x movement
+        if(XDirectionLossBuffer > 0) { return; }
         if (InputXDirection == 0)
         {
             float deacelerationMult = 0;
@@ -320,6 +387,7 @@ public partial class player : CharacterBody2D
         jump_coyote_timer -= (float)delta;
         jump_buffer_timer -= (float)delta;
         ceil_buffer_timer -= (float)delta;
+        XDirectionLossBuffer -= (float)delta;
     }
 
 
@@ -396,6 +464,12 @@ public partial class player : CharacterBody2D
                 break;
             case 1:
                 GetNode<Sprite2D>("/root/World/Player/Sprite2D").Modulate = new Color(0.5f, 0.5f, 0.5f);
+                break;
+            case 2:
+                GetNode<Sprite2D>("/root/World/Player/Sprite2D").Modulate = new Color(0f, 0.9f, 0.6f);
+                break;
+            case 3:
+                GetNode<Sprite2D>("/root/World/Player/Sprite2D").Modulate = new Color(1f, 0.2f, 0.2f);
                 break;
 
         }
