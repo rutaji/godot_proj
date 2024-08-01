@@ -23,6 +23,8 @@ namespace dream.scrips
         Label DirectionY;
         Label JumpPressed;
         Label JumpRelleased;
+        //----menu3
+        Label Fuel;
 
         public override void _Process(double delta)
         {
@@ -46,6 +48,10 @@ namespace dream.scrips
                     JumpPressed.Text = "Jump just pressed" + p.just_jump_pressed.ToString();
                     JumpRelleased.Text ="Jump just release" + p.just_jump_release.ToString();
                     break;
+                case 3:
+                    Fuel.Text = p.fuelBuffer.ToString();
+                    break;
+
             }
             
         }
@@ -75,6 +81,8 @@ namespace dream.scrips
             DirectionY = GetNode<Label>("/root/World/Player/Camera2D/Menu2/DirectionY");
             JumpPressed = GetNode<Label>("/root/World/Player/Camera2D/Menu2/JumpPressed");
             JumpRelleased = GetNode<Label>("/root/World/Player/Camera2D/Menu2/JumpRelease");
+
+            Fuel = GetNode<Label>("/root/World/Player/Camera2D/Menu3/Fuel");
         }
         
 

@@ -56,5 +56,10 @@ namespace dream.scrips
         {
             return TileMap.LocalToMap(position);
         }
+
+        internal static void RemoveCoin(Vector2I coinPos)
+        {
+            TileMap.SetCell(0, coinPos, 0, new Vector2I(1, 0), 0);
+        }
     }
 }

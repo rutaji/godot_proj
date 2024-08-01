@@ -6,7 +6,6 @@ using System.Runtime.ConstrainedExecution;
 
 public partial class player : CharacterBody2D
 {
-	//----new
 
 	//----------------speed
 
@@ -92,11 +91,48 @@ public partial class player : CharacterBody2D
     public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
     Power power;
 	public Vector2 RespawnPosition = Vector2.Zero;
+    internal float fuelBuffer = 0;
+    float fuelCharge = 0;
+    bool fuelCharging = false;
+    float rejzaChargeDurationB = 0;
 
     public override void _PhysicsProcess(double delta)
 	{
         DoInputs();
         NewVelocity = Velocity;
+
+        if (rejzaChargeDurationB > 0) 
+        {
+            ChangeColor(2);
+            ResetVelocity();
+            NewVelocity += DashDirection * Power.FuelVel;
+            rejzaChargeDurationB -= (float)delta;
+            if(rejzaChargeDurationB < 0) { ChangeColor(0);  }
+        }
+        else if ((fuelCharging == false || !Input.IsActionPressed("ability")) && fuelCharge > 0)
+        {
+            ResetVelocity();
+            DashDirection = GetInputVector();
+            rejzaChargeDurationB = Power.DurationPerFuel * fuelCharge;
+            fuelCharge = 0;
+            
+        }
+        else if (Power.SelectedPower == 8 && Input.IsActionPressed("ability"))
+        {
+            ChangeColor(1);
+            if (fuelBuffer > delta)
+            {
+                fuelCharge += (float)delta;
+                fuelCharging = true;
+                fuelBuffer -= (float)delta;
+            }
+            else
+            {
+                fuelCharging = false;
+            }
+
+        }
+
         if (DashTimeBuffer > 0)
         {
             ChangeColor(1);
@@ -149,7 +185,7 @@ public partial class player : CharacterBody2D
         }
         else
         {
-            ChangeColor(0);
+            if (Power.SelectedPower != 8 ) { ChangeColor(0); }
             state = CheckState();
             Jumping();
             state = CheckState();
@@ -165,7 +201,7 @@ public partial class player : CharacterBody2D
 
 		#region collisions
 		MoveAndSlide();
-		for (int i = 0; i < GetSlideCollisionCount(); i++)
+        for (int i = 0; i < GetSlideCollisionCount(); i++)
 		{
             KinematicCollision2D collision = GetSlideCollision(i);
 			Vector2I pos = (TileManager.getPosition(collision.GetColliderRid()));
@@ -179,7 +215,7 @@ public partial class player : CharacterBody2D
         Vector2I position = TileManager.getPosition(Position);
         int t = TileManager.GetTileValue(position);
         SolvePossition(t, position);
-
+        Velocity = NewVelocity;
         #endregion
     }
     public void ResetVelocity() 
@@ -280,6 +316,7 @@ public partial class player : CharacterBody2D
     }
     private void RefreshOnFloor() 
     {
+        if( NewVelocity.Y > 0) { NewVelocity.Y = 0; }
         state = PLayerState.standing;
         jump_coyote_timer = jump_coyote;
         ceil_buffer_timer = 0;
@@ -403,6 +440,9 @@ public partial class player : CharacterBody2D
 			case 4:
 				Refresh();
 				break;
+            case 7:
+                CollectCoin(pos);
+                break;
 			
 
 
@@ -410,7 +450,15 @@ public partial class player : CharacterBody2D
 
         }
     }
-	public bool CanAplyGravity() 
+
+    private void CollectCoin(Vector2I coinPos)
+    {
+        GD.Print("coin");
+        TileManager.RemoveCoin(coinPos);
+        if (Power.ResetChargeTimeOnCoin) { ChargeBuffer = Power.ChargeTime; }
+    }
+
+    public bool CanAplyGravity() 
 	{
 		return 5 != TileManager.GetTileValue(TileManager.getPosition(Position));
     }
@@ -421,10 +469,33 @@ public partial class player : CharacterBody2D
             case 1:
                 Die();
                 break;
-			case 6:
-				Vector2 diff = Position - TileManager.getGlobal(pos);
-				Velocity = diff.Normalized() * VariableManagger.bouncyBlock;
-				break;
+            case 6:
+                Vector2 diff = Position - TileManager.getGlobal(pos);
+                NewVelocity = diff.Normalized() * VariableManagger.bouncyBlock;
+                break;
+            case 8:
+                if (VariableManagger.SpringMode == 0)
+                {
+                    if (VariableManagger.SpringResetYVel) { NewVelocity.Y = 0; }
+                    NewVelocity += new Vector2(0, -1) * VariableManagger.SpringPower;
+                }
+                else if (VariableManagger.SpringMode == 1) 
+                {
+                    if (NewVelocity.Y > 0) { NewVelocity.Y = NewVelocity.Y * -1 * VariableManagger.SpringFactor; }
+                }
+                break;
+            case 9:
+                NewVelocity.Y = MathF.Min(NewVelocity.Y + VariableManagger.BeltPower, VariableManagger.MaxBeltSpeed);
+                break;
+            case 10:
+                NewVelocity.X = MathF.Max(NewVelocity.X - VariableManagger.BeltPower, -VariableManagger.MaxBeltSpeed);
+                break;
+            case 11:
+                NewVelocity.Y = MathF.Max(NewVelocity.Y - VariableManagger.BeltPower, -VariableManagger.MaxBeltSpeed);
+                break;
+            case 12:
+                NewVelocity.X = MathF.Min(NewVelocity.X + VariableManagger.BeltPower, VariableManagger.MaxBeltSpeed);
+                break;
 
 
         }

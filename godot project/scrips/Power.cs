@@ -11,26 +11,26 @@ namespace dream.scrips
     {
         //------------same for all
         public float cooldown = 7;
-        public bool RefreshOnFloorv = true;
+        public bool RefreshOnFloorv = true; // if true cooldown will reset when on floor
         //------velocity
-        float VelocityPower = 90;
-        float VelocityYMult = 1;
+        float VelocityPower = 900; //velocity added when pressed
+        float VelocityYMult = 1; // multiplayer for Y direction
         bool ResetVelovityOnActiveVel = true; //nastaví hráčovu velocity na nula při aktivaci
         //--------dash
-        public float DashTime = 3;
-        public float DashPower = 20;
-        public bool SameSpeed = true;
+        public float DashTime = 3; //duration of dash in seconds
+        public float DashPower = 20; //velocity added every frame
+        public bool SameSpeed = true; // if true dash is constant speed => if false dash is accelerating
         //----------sandevistan
-        public float sandevistanTime = 1.9f;
-        public float sandevistanPower = 90;
+        public float sandevistanTime = 1.9f; //duration in seconds
+        public float sandevistanPower = 90; //speed of sandevistan
         public int KeepAllVelocity = 2; // 0 = reset velocity at end
                                         // 1 = sum of all velocity gained (during sandevistan) at end => set KeepAllVelocityMult low  0.03f
                                         // 2 = get boost to last direction player went on end => set KeepAllVelocityMult high 90f
 
         public float KeepAllVelocityMult = 90f;
         //------------------groundPound
-        public float GroundPoundSpeed = 120;
-        public bool ResetVelocityOnGroundPound = true;
+        public float GroundPoundSpeed = 120; //velocity Y set on active
+        public bool ResetVelocityOnGroundPound = true; // resets X Velocity on activation
         //-------------push
         public float PushPower = 5; // basically lenght of a vector => bigger number more speeeeedd
         public bool Pull = false; //opposite direction
@@ -44,12 +44,18 @@ namespace dream.scrips
         public float ChargeSpeed = 150; //speed set when starting charge
         public float ChargeAcceleration = 0.1f; //acceleration when charging
         public float MaxChargespeed = 170; // max speed while charging
-        public float ChargeTime = 8f; //maxChargeTime
+        public static float ChargeTime = 8f; //maxChargeTime
+        public static bool ResetChargeTimeOnCoin = true;//if true collecting coins while charging will reset duration of the charge back to chargeTime.
+
         //------------------Explosion
-        public float BulletSpeed = 90;
-        public static float ExplosionRadius = 50;
-        public static float ExplosionPower = 400;
-        public static bool ExplosionDistanceNotMatter = true;
+        public float BulletSpeed = 90; //spped of projectile
+        public static float ExplosionRadius = 50; //radius of exlposion
+        public static float ExplosionPower = 400; //Velocity added to player
+        public static bool ExplosionDistanceNotMatter = true; //if true explosion will bounce player by the same force. Distance bettwen player and center of explosion doesnt matter.
+        //-----------chargable dash
+        public static float MaxFuel = 5; //mach fuel stored inm player. Click f3 to view. (seconds)
+        public static float FuelVel = 100;//velocity constant every frame
+        public static float DurationPerFuel = 0.7f; //time of dash per second of charging fuel.
 
         //----------UI nebo spíš jeho karikatura
 
@@ -58,8 +64,8 @@ namespace dream.scrips
         //--------------Logic
         public static player Player;
         float CurrentCooldown = 0;
-        int SelectedPower = 0;
-        int MaxPower = 8;
+        public static int  SelectedPower = 0;
+        int MaxPower = 9;
         public override void _Ready()
         {
             Name = GetNode<Label>("/root/World/Player/Camera2D/PowerMenu/Name");
@@ -136,6 +142,9 @@ namespace dream.scrips
                     bulletReal.Velocity = MouseLook.Normalized() * BulletSpeed;
                     CurrentCooldown = cooldown;
                     break;
+                case 8:
+                    //chargeable dash
+                    break;
 
             }
         }
@@ -179,6 +188,10 @@ namespace dream.scrips
                 case 7:
                     Name.Text = "Explosion";
                     break;
+                case 8:
+                    Name.Text = "chargeable dash";
+                    Player.fuelBuffer = MaxFuel;
+                    break;
                 default:
                     Name.Text = " ";
                     break;
@@ -187,6 +200,7 @@ namespace dream.scrips
         public void Refresh()
         {
             CurrentCooldown = 0;
+            Player.fuelBuffer = MaxFuel;
         }
         public void RefreshOnFloor()
         {
