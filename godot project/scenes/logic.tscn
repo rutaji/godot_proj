@@ -1,17 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfcf22pqvrsma"]
+[gd_scene load_steps=5 format=3 uid="uid://dbqtm0t2gsqgv"]
 
-[ext_resource type="PackedScene" uid="uid://cxoguwcsqe4d4" path="res://scenes/player.tscn" id="1_lptkl"]
-[ext_resource type="Script" path="res://scrips/player.cs" id="2_b7num"]
-[ext_resource type="Script" path="res://scrips/DebugScript.cs" id="4_04kvf"]
-[ext_resource type="Script" path="res://scrips/TileManager.cs" id="4_qnleo"]
-[ext_resource type="Script" path="res://scrips/Power.cs" id="5_k0etd"]
-[ext_resource type="PackedScene" uid="uid://kao8c42t7fnx" path="res://scenes/levels/rutaji/02.tscn" id="6_fxrdv"]
+[ext_resource type="PackedScene" uid="uid://cxoguwcsqe4d4" path="res://scenes/player.tscn" id="1_yka6d"]
+[ext_resource type="Script" path="res://scrips/player.cs" id="2_c26ln"]
+[ext_resource type="Script" path="res://scrips/DebugScript.cs" id="3_npral"]
+[ext_resource type="Script" path="res://scrips/Power.cs" id="4_5t23y"]
 
-[node name="World" type="Node2D"]
-script = ExtResource("4_qnleo")
+[node name="Logic" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_lptkl")]
-script = ExtResource("2_b7num")
+[node name="Player" parent="." instance=ExtResource("1_yka6d")]
+script = ExtResource("2_c26ln")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
@@ -100,9 +97,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="DebugNode" type="Node2D" parent="Player"]
-script = ExtResource("4_04kvf")
+script = ExtResource("3_npral")
 
 [node name="Power" type="Node2D" parent="Player"]
-script = ExtResource("5_k0etd")
-
-[node name="T" parent="." instance=ExtResource("6_fxrdv")]
+script = ExtResource("4_5t23y")

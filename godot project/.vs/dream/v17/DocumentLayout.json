@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\0projects\\godot side project\\godot project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|c:\\0projects\\godot side project\\godot project\\scrips\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|solutionrelative:scrips\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|c:\\0projects\\godot side project\\godot project\\scrips\\variablemanagger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|solutionrelative:scrips\\variablemanagger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|c:\\0projects\\godot side project\\godot project\\scrips\\power.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|solutionrelative:scrips\\power.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|c:\\0projects\\godot side project\\godot project\\scrips\\variablemanagger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|solutionrelative:scrips\\variablemanagger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|c:\\0projects\\godot side project\\godot project\\scrips\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|solutionrelative:scrips\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{83D568CA-75EB-4711-81BF-CC8472284BEF}|dream.csproj|c:\\0projects\\godot side project\\godot project\\scrips\\tilemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
@@ -79,8 +79,7 @@
               "RelativeToolTip": "scrips\\Explosion.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-23T19:27:29.256Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-23T19:27:29.256Z"
             },
             {
               "$type": "Document",
@@ -92,8 +91,7 @@
               "RelativeToolTip": "scrips\\Bullet.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T14:22:19.504Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-22T14:22:19.504Z"
             },
             {
               "$type": "Document",
@@ -105,8 +103,7 @@
               "RelativeToolTip": "..\\..\\..\\Users\\rutaj\\AppData\\Local\\Temp\\.vsdbgsrc\\81cf8999fde42e47e74e4afafc3edf5d1f561f06\\Godot.NativeInterop.NativeFuncs.generated.cs",
               "ViewState": "AQIAAFkAAAAAAAAAAAAUwGwAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T12:54:04.895Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-22T12:54:04.895Z"
             },
             {
               "$type": "Document",
@@ -116,7 +113,7 @@
               "RelativeDocumentMoniker": "scrips\\Power.cs",
               "ToolTip": "C:\\0projects\\godot side project\\godot project\\scrips\\Power.cs",
               "RelativeToolTip": "scrips\\Power.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAQwBwAAAAAAAAA",
+              "ViewState": "AQIAABoAAAAAAAAAAAAQwAwAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-20T21:48:29.312Z",
               "EditorCaption": ""
@@ -155,31 +152,30 @@
               "RelativeToolTip": "scrips\\DebugScript.cs",
               "ViewState": "AQIAADoAAAAAAAAAAAAiwFQAAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-19T14:28:01.412Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-19T14:28:01.412Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "VariableManagger.cs",
               "DocumentMoniker": "C:\\0projects\\godot side project\\godot project\\scrips\\VariableManagger.cs",
               "RelativeDocumentMoniker": "scrips\\VariableManagger.cs",
               "ToolTip": "C:\\0projects\\godot side project\\godot project\\scrips\\VariableManagger.cs",
               "RelativeToolTip": "scrips\\VariableManagger.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABfAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-17T19:27:30.717Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "player.cs",
               "DocumentMoniker": "C:\\0projects\\godot side project\\godot project\\scrips\\player.cs",
               "RelativeDocumentMoniker": "scrips\\player.cs",
               "ToolTip": "C:\\0projects\\godot side project\\godot project\\scrips\\player.cs",
               "RelativeToolTip": "scrips\\player.cs",
-              "ViewState": "AQIAACAAAAAAAAAAAAAQwAcAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAD4AAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-17T15:07:25.395Z",
               "EditorCaption": ""
@@ -194,8 +190,7 @@
               "RelativeToolTip": "scrips\\TileManager.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAcwDAAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-17T14:14:54.46Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-17T14:14:54.46Z"
             },
             {
               "$type": "Document",

@@ -15,7 +15,7 @@ public partial class player : CharacterBody2D
 	public float deceleration = 170;
 
 	//todo
-	public float airXaccelerationMult = 1;
+	public float airXaccelerationMult = 1; //when in air (jumping, hang,falling)
     public float jumpXaccelerationMult = 1;
     public float hangXaccelerationMult = 1;
     public float fallXaccelerationMult = 1;
